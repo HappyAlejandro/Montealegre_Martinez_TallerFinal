@@ -40,11 +40,11 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 app.use(express.json());
 
-MongoClient.connect('mongodb+srv://cluster0-lvsre.mongodb.net/canciones', 
+MongoClient.connect('mongodb+srv://cluster0-itfk5.mongodb.net/tienda', 
 {
     auth:{
-        user: 'nicolas2698',
-        password: 'a00056848'
+        user: 'HappyAlejandro',
+        password: 'rotomiro76*'
 
     }
 },
@@ -52,7 +52,7 @@ MongoClient.connect('mongodb+srv://cluster0-lvsre.mongodb.net/canciones',
 function (err, client) {
     if (err) throw err;
 
-    db = client.db('canciones');
+    db = client.db('tienda');
 
     app.listen(process.env.PORT || 1234);
 });
