@@ -40,12 +40,21 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 app.use(express.json());
 
-MongoClient.connect('mongodb://localhost:27017', function (err, client) {
+MongoClient.connect('mongodb+srv://cluster0-lvsre.mongodb.net/canciones', 
+{
+    auth:{
+        user: 'nicolas2698',
+        password: 'a00056848'
+
+    }
+},
+
+function (err, client) {
     if (err) throw err;
 
-    db = client.db(dbName);
+    db = client.db('canciones');
 
-    app.listen(3000);
+    app.listen(process.env.PORT || 1234);
 });
 
 app.get("/", function (req, res) {
@@ -62,7 +71,7 @@ app.get("/trans", function(req, res){
 
 
 app.get('/tienda', function (req, res) {
-    const collection = db.collection('productos');
+    const collection = db.collection('products');
     const collectionTwo = db.collection('albums');
     let dokss;
 
